@@ -44,7 +44,7 @@
       </main>
 
       <footer class="footer">
-        <p><strong>Mail bij vragen: <a href="mailto:winkelbeheer@scoutingrveer.nl">een winkel van Joeri Sonneveld </p>
+        <p>een winkel van Joeri Sonneveld, knipplein 11, Roosendaal <strong>Mail bij vragen: <a href="mailto:winkelbeheer@scoutingrveer.nl">info@4shop.nl</p>
       </footer>
 
     </div>

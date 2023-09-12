@@ -141,3 +141,12 @@ span.collapsing{
 		height: 24px;
 	}
 }
+.product-title{
+	display: flex;
+	justify-content: space-between;
+}
+.product-body{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
