@@ -12,6 +12,9 @@
 						@unless(empty($product->description))
 							<p>{{ $product->description }}</p>
 						@endunless
+						@unless($product->discount == 0)
+							<p style="color: red;" > nu <b>{{$product->discount}}%</b> korting</p>
+						@endunless
 					</div>
 					<button class="btn btn-primary">Meer info &amp; bestellen</button>
 				</div>
