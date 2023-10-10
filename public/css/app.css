@@ -150,3 +150,11 @@ span.collapsing{
 	flex-direction: column;
 	justify-content: space-between;
 }
+.categoryEdit{
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+.productsList{
+	margin-top: 2em;
+}

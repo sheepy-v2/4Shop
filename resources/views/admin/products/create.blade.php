@@ -49,6 +49,14 @@
 			<label for="description">Beschrijving</label>
 			<textarea name="description" id="description" cols="30" rows="5" class="form-control"></textarea>
 		</div>
+		<div class="form-group">
+			<label for="category">categorie</label>
+			<select name="category" id="category">
+				@foreach($categories as $category)
+					<option value="{{ $category->id }}">{{$category->name}}</option>
+				@endforeach
+			</select>
+		</div>
 
 		<button type="submit" class="form-control btn btn-primary my-2">Opslaan</button>
 		{{ csrf_field() }}

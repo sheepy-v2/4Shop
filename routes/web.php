@@ -38,6 +38,8 @@ Route::get('/ideal/pay/{order}', [IdealController::class, 'redirect'])->name('id
 Route::get('/ideal/finish/{order}', [IdealController::class, 'finish'])->name('ideal.finish');
 Route::get('/ideal/webhook/{order}', [IdealController::class, 'webhook']);
 
+Route::get('/admin/categories/{category}/edit', 'CategoryController@edit')->name('admin.categories.edit');
+Route::post('/admin/categories/{category}', 'CategoryController@update')->name('admin.categories.update');
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
@@ -55,9 +57,12 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('orders/packing', [AdminOrderController::class, 'packing'])->name('admin.orders.packing');
     Route::resource('orders', AdminOrderController::class, ['as' => 'admin'])->only(['index', 'show', 'destroy']);
 
+    Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class, ['as' => 'admin'])->except('show');
+
 });
 
 Route::view('/login', 'auth.login')->name('login');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('authenticate');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+

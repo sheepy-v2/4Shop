@@ -13,12 +13,18 @@
 		<tr>
 			<th>Titel</th>
 			<th>Prijs</th>
+			<th>Categorie</th>
 			<th colspan="4">&nbsp;</th>
 		</tr>
 		@foreach($products as $product)
 			<tr>
 				<td>{{ $product->title }}</td>
 				<td>&euro;{{ $product->price }}</td>
+				@if($product->category)
+					<td>{{ $product->category->name }}</td>
+				@else
+					<td>No Category (ID: {{ $product->category_id }})</td>
+				@endif
 				<td>
 					@if($product->active)
 						<span class="badge badge-success">Zichtbaar</span>

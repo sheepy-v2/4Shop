@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->boolean('leiding');
             $table->boolean('active')->default(true);
             $table->timestamps();
+            
         });
     }
 
