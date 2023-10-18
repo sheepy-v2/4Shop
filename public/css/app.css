@@ -158,3 +158,7 @@ span.collapsing{
 .productsList{
 	margin-top: 2em;
 }
+.category_links{
+	display: flex;
+	flex-direction: row;
+}

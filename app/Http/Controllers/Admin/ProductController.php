@@ -14,8 +14,10 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
+        
         return view('admin.products.index')
                 ->with(compact('products'));
+                
     }
 
     public function create(Request $request)
@@ -101,8 +103,9 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
+        $categories = Category::All();
         return view('admin.products.edit')
-                ->with(compact('product'));
+                ->with(compact('product', 'categories'));
     }
 
     public function update(Request $request, Product $product)

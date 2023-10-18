@@ -63,4 +63,15 @@ class OrderController extends Controller
         return view('admin.packing')
                 ->with(compact('orders'));
     }
+
+    public function toggle(order $order)
+    {
+        
+        $order->delivered = !$order->delivered;
+        $order->save();
+        $orders = Order::all();
+
+        return view('admin.orders')
+                ->with(compact('orders'));
+    }
 }

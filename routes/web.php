@@ -8,6 +8,7 @@ use App\Http\Controllers\IdealController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +32,9 @@ Route::post('/winkel/bestellen', [OrderController::class, 'pay'])->name('pay');
 Route::get('/winkel/{product}', [ProductController::class, 'show'])->name('products.show');
 Route::post('/winkel/{product}', [ProductController::class, 'order'])->name('products.order');
 
+Route::get('/categories/{category}/', [CategoryController::class, 'index']);
+
+
 Route::get('/bestelling/{order}/{slug}', [OrderController::class, 'show'])->name('order.show');
 Route::get('/bestelling/{order}/{slug}/cancel', [OrderController::class, 'cancel'])->name('order.cancel');
 
@@ -51,6 +55,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::post('products/{product}/types/create', [AdminProductController::class, 'types_store'])->name('admin.products.types.store');
     Route::delete('products/{product}/types/{type}', [AdminProductController::class, 'types_delete'])->name('admin.products.types.delete');
 
+    Route::get('/admin/orders/toggle/{order}', [AdminOrderController::class, 'toggle'])->name('admin.orders.toggle');
     Route::get('orders/factory', [AdminOrderController::class, 'factory'])->name('admin.orders.factory');
     Route::get('orders/mail', [AdminOrderController::class, 'mail'])->name('admin.orders.mail');
     Route::post('orders/mail', [AdminOrderController::class, 'mail_send'])->name('admin.orders.mail.send');
@@ -58,6 +63,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::resource('orders', AdminOrderController::class, ['as' => 'admin'])->only(['index', 'show', 'destroy']);
 
     Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class, ['as' => 'admin'])->except('show');
+    
 
 });
 

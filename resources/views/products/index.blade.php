@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+	<div class="category_links">
+		@foreach($categories as $category)
+			<a href="/categories/{{$category->id}}">{{ $category->name }}</a>
+			<p>-</p>
+		@endforeach
+		<a href="{{ route('shop') }}">alle producten</a>	
+	</div>
 
 	<div class="products">
 		@foreach($products as $product)

@@ -21,6 +21,10 @@
 				<input type="number" min="0" id="price" name="price" class="form-control" value="{{ old('price') }}">
 			</div>
 		</div>
+		<div class="form-group">
+			<label for="percentage">kortingspercentage</label>
+			<input type="number" min="0" max="100">
+		</div>
 		<div class="form-group my-4">
 			<div class="form-check form-check-inline">
 				<input class="form-check-input" type="radio" name="active" id="active1" value="1">
@@ -57,6 +61,7 @@
 				@endforeach
 			</select>
 		</div>
+		
 
 		<button type="submit" class="form-control btn btn-primary my-2">Opslaan</button>
 		{{ csrf_field() }}

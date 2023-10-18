@@ -21,6 +21,10 @@
 				<input type="number" min="0" id="price" name="price" class="form-control" value="{{ old('price', $product->price) }}">
 			</div>
 		</div>
+		<div class="form-group">
+			<label for="percentage">kortingspercentage</label>
+			<input type="number" min="0" max="100" value="{{ old('discount', $product->discount) }}">
+		</div>
 		<div class="form-group my-4">
 			<div class="form-check form-check-inline">
 				<input class="form-check-input" type="radio" name="active" id="active1" value="1" @if(old('active', $product->active)) checked @endif>
@@ -49,6 +53,14 @@
 			<label for="description">Beschrijving</label>
 			<textarea name="description" id="description" cols="30" rows="5" class="form-control">{{ old('description', $product->description) }}</textarea>
 		</div>
+		<div class="form-group">
+			<select name="category" id="category">
+				@foreach($categories as $category)
+					<option value="{{ $category->id }}">{{$category->name}}</option>
+				@endforeach
+			</select>
+		</div>
+		
 
 		<button type="submit" class="form-control btn btn-primary my-2">Opslaan</button>
 		{{ csrf_field() }}
